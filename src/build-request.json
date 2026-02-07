@@ -1,0 +1,89 @@
+{
+  "kind": "build_request",
+  "title": "Update Yes result to single rose-giving stick-figure image with bottom love message + add extra sound triggers",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-19",
+      "text": "Update the “Yes” (answered) result screen to display only a single stick-figure illustration showing a male stick figure giving a rose to a female stick figure (remove the hugging scene), and update the image alt text to match the new single-scene content.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-messages"
+        ],
+        "quotes": [
+          "at last only one image of a male stick figure giving rose to female stick figure"
+        ]
+      },
+      "acceptanceCriteria": [
+        "On the answered screen (after tapping “Yes! 🌹”), the displayed illustration contains only the “male giving rose to female” scene and no hugging scene.",
+        "The answered-screen <img> alt text describes only “a male stick figure giving a rose to a female stick figure” (no mention of hugging).",
+        "The UI renders the image from /assets/generated (static asset), not via the backend."
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "text": "Add a bottom message on the answered (Yes) result screen that includes a “Love you” message and the exact text “Happy Rose Day kannu”. Replace the existing answered-screen footer content with this new bottom message.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-messages"
+        ],
+        "quotes": [
+          "and a love you message at the bottom with a happy rose day kannu message"
+        ]
+      },
+      "acceptanceCriteria": [
+        "After the user accepts (answered screen), a bottom-fixed (or bottom-aligned) message is visible that includes “Love you” and includes the exact text “Happy Rose Day kannu”.",
+        "The previous answered-screen footer that includes the caffeine.ai link is not shown on the answered screen anymore.",
+        "The message is readable on iPad Chrome (sufficient contrast and spacing) and does not overlap the main image content."
+      ]
+    },
+    {
+      "id": "REQ-21",
+      "text": "Add additional sound playback to more interactions of your choice using user-gesture-safe playback (no autoplay), while keeping volume low and non-intrusive. At minimum, play a sound when the celebration modal is closed via its close button/tap.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "recent-messages"
+        ],
+        "quotes": [
+          "and also add sound wherever you like it"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Closing the celebration modal via user interaction triggers a sound effect (reusing existing audio assets is acceptable).",
+        "All audio plays only in response to user gestures (tap/click) and does not attempt to autoplay on initial page load.",
+        "Audio remains rate-limited where appropriate and stays at a low, non-intrusive volume consistent with existing behavior."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify any files under frontend/src/components/ui (Shadcn components are read-only).",
+    "Do not modify immutable hook entrypoints listed in SYSTEM_CONTEXT (compose instead of editing if needed).",
+    "Keep all images and audio as static files under frontend/public/assets/generated and reference them directly from the frontend (no backend routing).",
+    "Backend remains a single Motoko actor; no backend changes are required for this request."
+  ],
+  "nonGoals": [
+    "Do not change the initial prompt text (“Will you accept my rose?”) or the existing Yes/No interaction mechanics beyond adding the requested message/image/sound adjustments.",
+    "Do not add third-party services, external storage, or non-Internet-Identity auth."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Stick-figure illustration/animation showing only a male stick figure giving a rose to a female stick figure (stick-figures-rose-only-animated.dim_1024x1024.gif)"
+    ],
+    "edits": [
+      "Remove the hugging scene and keep only the male-giving-rose-to-female scene (stick-figures-rose-hug-animated.dim_1024x1024.gif > stick-figures-rose-only-animated.dim_1024x1024.gif)"
+    ]
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

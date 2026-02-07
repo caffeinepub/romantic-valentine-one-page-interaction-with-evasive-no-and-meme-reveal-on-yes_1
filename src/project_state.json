@@ -1,0 +1,246 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 15,
+  "summary": "Update the “Yes” result to use only a single stick-figure illustration showing a male stick figure giving a rose to a female stick figure (remove the hugging scene), add a bottom message including “Love you” and “Happy Rose Day kannu”, and include sound effects where appropriate.",
+  "architectural_notes": [
+    "Implement as a self-contained HTML/CSS/JS page optimized for iPad Chrome interaction.",
+    "No-button evasion should trigger on tap/click attempts (iPad-friendly) and can display an escalating “Please accept Yes” popup with changing emoji per attempt.",
+    "If adding audio, ensure it only plays after a user gesture (tap/click) for iPad/Chrome autoplay restrictions; provide a mute toggle if needed.",
+    "Update acceptance/result screen content to a single stick-figure (male giving rose to female) and include a bottom text message: “Love you” + “Happy Rose Day kannu”."
+  ],
+  "known_issues": [
+    "User reports the previously claimed “Version 3 built/deployed” update was not actually implemented."
+  ],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Stick-figure illustration/animation showing only a male stick figure giving a rose to a female stick figure (stick-figures-rose-only-animated.dim_1024x1024.gif)\n\n## Edit Images\n- Remove the hugging scene and keep only the male-giving-rose-to-female scene (stick-figures-rose-hug-animated.dim_1024x1024.gif > stick-figures-rose-only-animated.dim_1024x1024.gif)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-single-page-valentine-prompt-ui-that-asks-will-you-be-my-valentine-and-shows-exactly-two-options-yes-and-no-with-a-simple-romantic-layout-suitable-for-ipad-chrome",
+      "title": "Create a single-page Valentine prompt UI that asks “Will you be my Valentine?” and shows exactly two options: “Yes” and “No”, with a simple romantic layout suitable for iPad Chrome.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-an-evasive-interaction-for-the-no-button-so-that-when-the-user-tries-to-hover-or-otherwise-point-at-it-it-moves-to-a-different-position-on-the-screen-and-cannot-be-clicked",
+      "title": "Implement an evasive interaction for the “No” button so that when the user tries to hover or otherwise point at it, it moves to a different position on the screen and cannot be clicked.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-when-the-user-clicks-taps-yes-replace-or-augment-the-ui-to-show-a-meme-image-and-the-text-good-choice",
+      "title": "When the user clicks/taps “Yes”, replace or augment the UI to show a meme image and the text “Good choice ❤️”.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-consistent-romantic-visual-theme-using-a-pink-and-white-color-scheme-background-typography-buttons-spacing-and-keep-the-design-simple-and-coherent",
+      "title": "Apply a consistent romantic visual theme using a pink and white color scheme (background, typography, buttons, spacing) and keep the design simple and coherent.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-required-static-meme-image-asset-under-frontend-public-assets-generated-and-reference-it-directly-from-the-frontend-do-not-route-images-through-the-backend",
+      "title": "Add the required static meme image asset under frontend/public/assets/generated and reference it directly from the frontend (do not route images through the backend).",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-way-for-the-user-to-enter-an-optional-custom-message-on-the-initial-valentine-prompt-screen-and-when-the-user-clicks-taps-yes-display-that-custom-message-along-with-the-existing-good-choice-heading-and-meme-image",
+      "title": "Add a way for the user to enter an optional custom message on the initial Valentine prompt screen, and when the user clicks/taps “Yes”, display that custom message along with the existing “Good choice ❤️” heading and meme image.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-when-the-user-clicks-taps-the-yes-button-show-a-celebratory-popup-overlay-modal-style-on-top-of-the-existing-good-choice-screen-that-includes-a-party-popper-confetti-style-animation-and-the-message-thank-you-for-accepting-the-rose-you-are-now-finally-mine",
+      "title": "When the user clicks/taps the “Yes! 💕” button, show a celebratory popup overlay (modal-style) on top of the existing “Good choice ❤️” screen that includes a party-popper/confetti-style animation and the message: “Thank you for accepting the rose — you are now finally mine.”",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-change-the-initial-prompt-copy-from-the-valentine-question-to-a-rose-acceptance-question-using-the-exact-user-facing-text-will-you-accept-my-rose",
+      "title": "Change the initial prompt copy from the Valentine question to a rose-acceptance question, using the exact user-facing text: “Will you accept my rose?”",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-initial-screen-visual-design-to-be-a-full-rose-themed-page-rose-forward-styling-while-keeping-the-existing-simple-single-page-layout-and-ipad-chrome-usability",
+      "title": "Update the initial screen visual design to be a full rose-themed page (rose-forward styling), while keeping the existing simple single-page layout and iPad Chrome usability.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-change-the-no-interaction-so-that-every-time-the-user-attempts-to-click-tap-no-the-no-option-moves-to-the-other-side-of-the-available-button-area-screen-preventing-a-successful-click-tap",
+      "title": "Change the “No” interaction so that every time the user attempts to click/tap “No”, the “No” option moves to the other side of the available button area/screen, preventing a successful click/tap.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-on-each-attempted-no-click-tap-show-an-in-page-popup-overlay-message-that-asks-the-user-to-accept-yes-with-an-emoji-that-changes-each-time-to-a-progressively-cuter-face-use-the-exact-english-user-facing-text-prefix-please-accept-yes-followed-by-the-emoji",
+      "title": "On each attempted “No” click/tap, show an in-page popup/overlay message that asks the user to accept “Yes”, with an emoji that changes each time to a progressively cuter face. Use the exact English user-facing text prefix: “Please accept Yes” followed by the emoji.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-yes-path-shows-the-meme-image-and-the-heading-good-choice-as-the-acceptance-result",
+      "title": "Ensure the “Yes” path shows the meme image and the heading “Good choice ❤️” as the acceptance result.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-on-yes-acceptance-show-a-celebratory-popup-modal-style-with-a-party-popper-confetti-style-animation-and-the-message-in-english-thank-you-for-accepting-the-rose-you-are-now-finally-mine",
+      "title": "On “Yes” acceptance, show a celebratory popup (modal-style) with a party-popper/confetti-style animation and the message in English: “Thank you for accepting the rose — you are now finally mine”.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-rose-themed-background-pattern-image-as-a-static-asset-under-frontend-public-assets-generated-and-reference-it-directly-from-the-frontend-do-not-route-it-through-the-backend",
+      "title": "Add the rose-themed background/pattern image as a static asset under frontend/public/assets/generated and reference it directly from the frontend (do not route it through the backend).",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-current-good-choice-result-image-currently-sourced-from-assets-generated-valentine-good-choice-meme-dim-1024x1024-png-with-a-new-stick-figure-style-animated-illustration-showing-1-two-stick-figures-hugging-and-2-a-male-stick-figure-giving-a-rose-to-a-female-stick-figure-and-update-the-frontend-to-render-the-new-asset-under-the-good-choice-heading",
+      "title": "Replace the current “Good choice ❤️” result image (currently sourced from /assets/generated/valentine-good-choice-meme.dim_1024x1024.png) with a new stick-figure-style animated illustration showing (1) two stick figures hugging and (2) a male stick figure giving a rose to a female stick figure, and update the frontend to render the new asset under the “Good choice ❤️” heading.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-subtle-sparkle-animation-around-the-stick-figure-result-image-on-the-good-choice-answered-screen-keeping-performance-smooth-on-ipad-chrome-and-the-overall-rose-themed-aesthetic",
+      "title": "Add a subtle sparkle animation around the stick-figure result image on the “Good choice ❤️” (answered) screen, keeping performance smooth on iPad Chrome and the overall rose-themed aesthetic.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-tasteful-sound-effects-to-key-interactions-at-minimum-on-yes-tap-on-celebration-modal-open-and-on-attempted-no-interactions-ensuring-audio-only-plays-in-response-to-user-gestures-and-at-a-low-non-intrusive-volume",
+      "title": "Add tasteful sound effects to key interactions (at minimum: on “Yes! 🌹” tap, on celebration modal open, and on attempted “No” interactions), ensuring audio only plays in response to user gestures and at a low, non-intrusive volume.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-required-static-audio-assets-under-frontend-public-assets-generated-and-reference-them-directly-from-the-frontend-do-not-route-audio-through-the-backend",
+      "title": "Add the required static audio assets under frontend/public/assets/generated and reference them directly from the frontend (do not route audio through the backend).",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-yes-answered-result-screen-to-display-only-a-single-stick-figure-illustration-showing-a-male-stick-figure-giving-a-rose-to-a-female-stick-figure-remove-the-hugging-scene-and-update-the-image-alt-text-to-match-the-new-single-scene-content",
+      "title": "Update the “Yes” (answered) result screen to display only a single stick-figure illustration showing a male stick figure giving a rose to a female stick figure (remove the hugging scene), and update the image alt text to match the new single-scene content.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-bottom-message-on-the-answered-yes-result-screen-that-includes-a-love-you-message-and-the-exact-text-happy-rose-day-kannu-replace-the-existing-answered-screen-footer-content-with-this-new-bottom-message",
+      "title": "Add a bottom message on the answered (Yes) result screen that includes a “Love you” message and the exact text “Happy Rose Day kannu”. Replace the existing answered-screen footer content with this new bottom message.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-additional-sound-playback-to-more-interactions-of-your-choice-using-user-gesture-safe-playback-no-autoplay-while-keeping-volume-low-and-non-intrusive-at-minimum-play-a-sound-when-the-celebration-modal-is-closed-via-its-close-button-tap",
+      "title": "Add additional sound playback to more interactions of your choice using user-gesture-safe playback (no autoplay), while keeping volume low and non-intrusive. At minimum, play a sound when the celebration modal is closed via its close button/tap.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-2",
+      "summary": "Add Yes/No options where the No button moves away on hover to prevent clicking",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "On Yes click, display a meme image with the text “Good choice ❤️”",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Allow showing a custom message along with the meme when the user taps/clicks “Yes”",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "On “Yes” acceptance, show a celebratory popup with party popper animation and the message “thankyou for accepting the rose you are now finally mine”",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Change prompt from “Will you be my Valentine?” to “Will you accept my rose?” and switch the UI to a full rose-themed design",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "On each attempted No click, move the No button to the opposite side and show a popup asking to accept Yes with an emoji that changes to a cuter face each time",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Add a subtle sparkle animation around the stick-figure hug/rose scene",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Add tasteful sound effects where appropriate (e.g., on Yes acceptance/celebration)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "On “Yes” result screen, show only one stick-figure image (male giving rose to female) and add a bottom message with “Love you” plus “Happy Rose Day kannu”",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Romantic Valentine one-page interaction with evasive “No” and meme reveal on “Yes”",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

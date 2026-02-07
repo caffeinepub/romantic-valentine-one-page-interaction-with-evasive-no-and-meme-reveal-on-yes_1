@@ -1,0 +1,75 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Update answered (Yes) screen image + bottom love message, and add more user-gesture sound triggers",
+  "requirements": [
+    {
+      "id": "REQ-19",
+      "summary": "Swap the answered (Yes) result illustration to the single rose-giving stick-figure scene and update alt text to match.",
+      "acceptanceCriteria": [
+        "On the answered screen (after tapping “Yes! 🌹”), the displayed illustration contains only the “male giving rose to female” scene and no hugging scene.",
+        "The answered-screen <img> alt text describes only “a male stick figure giving a rose to a female stick figure” (no mention of hugging).",
+        "The UI renders the image from /assets/generated (static asset), not via the backend."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/stick-figures-rose-only-animated.dim_1024x1024.gif",
+          "operation": "create",
+          "description": "Add the generated stick-figure GIF that shows only the male stick figure giving a rose to the female stick figure (replacing the prior hug scene asset)."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Update the answered (Yes) screen to reference the new static asset at frontend/public/assets/generated/stick-figures-rose-only-animated.dim_1024x1024.gif and change the <img> alt text to describe only a male stick figure giving a rose to a female stick figure. Continue using existing shadcn/ui Button primitives already present (verify the component's usage instructions before implementing)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "summary": "Replace the answered-screen footer with a bottom-aligned message containing “Love you” and the exact text “Happy Rose Day kannu”.",
+      "acceptanceCriteria": [
+        "After the user accepts (answered screen), a bottom-fixed (or bottom-aligned) message is visible that includes “Love you” and includes the exact text “Happy Rose Day kannu”.",
+        "The previous answered-screen footer that includes the caffeine.ai link is not shown on the answered screen anymore.",
+        "The message is readable on iPad Chrome (sufficient contrast and spacing) and does not overlap the main image content."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Replace the answered-screen footer content with a bottom-aligned message that includes “Love you” and includes the exact text “Happy Rose Day kannu”, and ensure the answered layout reserves enough bottom space so the message doesn’t overlap the main image. Keep the existing non-answered footer unchanged. (Verify any shadcn/ui component usage already present before implementing.)"
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add minimal global styling support (e.g., safe-area-aware bottom spacing helper) if needed to keep the new answered bottom message readable and non-overlapping on iPad Chrome."
+        }
+      ]
+    },
+    {
+      "id": "REQ-21",
+      "summary": "Add additional low-volume, user-gesture-only sound triggers, including a sound when closing the celebration modal.",
+      "acceptanceCriteria": [
+        "Closing the celebration modal via user interaction triggers a sound effect (reusing existing audio assets is acceptable).",
+        "All audio plays only in response to user gestures (tap/click) and does not attempt to autoplay on initial page load.",
+        "Audio remains rate-limited where appropriate and stays at a low, non-intrusive volume consistent with existing behavior."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useSfx.ts",
+          "operation": "modify",
+          "description": "Extend the sound-effects hook with at least one additional user-gesture-safe sound (e.g., a modal-close sound) while keeping volume low and adding rate limiting where appropriate; reuse existing static audio assets under frontend/public/assets/generated where possible."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire new sound triggers into user interactions (at minimum: play a sound when the celebration modal is closed via user action) by calling the new useSfx function(s) only from click/tap handlers; do not initiate playback on initial render."
+        },
+        {
+          "path": "frontend/src/components/CelebrationModal.tsx",
+          "operation": "modify",
+          "description": "Update the modal close handling so that closing via the close button/tap invokes the App-provided close handler that also triggers the close sound. Continue using the existing shadcn/ui Dialog/Button components (verify the component's usage instructions before implementing)."
+        }
+      ]
+    }
+  ]
+}

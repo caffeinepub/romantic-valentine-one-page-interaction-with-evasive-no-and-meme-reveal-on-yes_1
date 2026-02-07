@@ -1,0 +1,8 @@
+{
+  "frontend/src/App.tsx": "Rose-themed single-page interactive component with \"Will you accept my rose?\" prompt, evasive No button with sound effects, sparkle animation around the answered-state stick-figure illustration, celebration modal with coordinated audio playback, and a bottom-fixed love message displaying \"Love you\" and \"Happy Rose Day kannu\" on the answered screen.",
+  "frontend/src/index.css": "Global styles with rose-themed OKLCH color system, custom animations for fade/slide/sparkle effects, rose gradient background, rose pattern background utility, performant CSS-driven confetti animation, subtle sparkle floating animation optimized for touch devices, and safe-area-aware bottom spacing helper.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with custom rose color palette including rose-primary, rose-accent, rose-light, rose-dark, and rose-muted tokens mapped to CSS variables.",
+  "frontend/src/hooks/useQueries.ts": "Empty placeholder file as no backend queries are required for this client-side only Valentine's page.",
+  "frontend/src/components/CelebrationModal.tsx": "Celebratory modal with confetti/party-popper animation displaying \"Thank you for accepting the rose — you are now finally mine\" message with pulsing heart icon and dismissible close button that triggers sound on close.",
+  "frontend/src/hooks/useSfx.ts": "Custom React hook that manages sound effects for Yes confirmation, celebration, No boop, and modal close interactions with rate-limiting, conservative volume, and graceful error handling for mobile autoplay restrictions."
+}
